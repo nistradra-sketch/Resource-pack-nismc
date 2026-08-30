@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bio Links - Modern Neon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #080710;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --neon-cyan: #00f3ff;
+            --neon-pink: #ff007f;
+            --text-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent; /* Smooth touch on iOS */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow Background Effects */
+        .bg-glow-1, .bg-glow-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .bg-glow-1 {
+            background: var(--neon-cyan);
+            top: 10%;
+            left: 10%;
+        }
+        .bg-glow-2 {
+            background: var(--neon-pink);
+            bottom: 10%;
+            right: 10%;
+        }
+
+        /* Container Profile Card */
+        .card-container {
+            width: 100%;
+            max-width: 480px; /* Pas untuk layar laptop maupun HP */
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 24px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8),
+                        0 0 15px rgba(0, 243, 255, 0.2);
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Custom Profile Logo */
+        .profile-img-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan),
+                        inset 0 0 15px var(--neon-cyan);
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 15px var(--neon-cyan);
+            }
+            100% {
+                box-shadow: 0 0 25px var(--neon-pink), 0 0 10px var(--neon-cyan);
+                border-color: var(--neon-pink);
+            }
+        }
+
+        /* Profile Title & Subtitle */
+        .profile-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .profile-bio {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+        }
+
+        /* Link List */
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.4);
+            border-radius: 14px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+
+        .link-btn i {
+            position: absolute;
+            left: 20px;
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+            transition: color 0.3s ease;
+        }
+
+        /* Hover Effect (Desktop) */
+        .link-btn:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-cyan);
+            transform: translateY(-2px);
+            color: #fff;
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        /* Active / Click Animation (Mobile & Desktop) */
+        .link-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 30px var(--neon-pink);
+            border-color: var(--neon-pink);
+            background: rgba(255, 0, 127, 0.2);
+        }
+
+        /* Ripple Effect Element */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.5s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries for fine tuning on smaller screens (iPhone SE / Small phones) */
+        @media (max-width: 380px) {
+            .card-container {
+                padding: 30px 16px;
+            }
+            .profile-title {
+                font-size: 1.3rem;
+            }
+            .link-btn {
+                font-size: 0.9rem;
+                padding: 14px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="card-container">
+        <div class="profile-img-wrapper">
+            <img src="https://picsum.photos/200" alt="Logo" class="profile-img">
+        </div>
+
+        <h1 class="profile-title">ZYGEN COMMUNITY</h1>
+        <p class="profile-bio">Official Hub & Social Media Links</p>
+
+        <div class="links-wrapper">
+            <a href="https://instagram.com" class="link-btn" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram Official</span>
+            </a>
+
+            <a href="https://tiktok.com" class="link-btn" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok Channel</span>
+            </a>
+
+            <a href="https://youtube.com" class="link-btn" target="_blank">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube Channel</span>
+            </a>
+
+            <a href="https://discord.com" class="link-btn" target="_blank">
+                <i class="fab fa-discord"></i>
+                <span>Join Discord Server</span>
+            </a>
+
+            <a href="https://wa.me/" class="link-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>Contact Admin (WhatsApp)</span>
+            </a>
+
+            <a href="https://wa.me/" class="link-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>Contact Admin (WhatsApp)</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // JS Animasi Ripple Efek Gelombang saat Tombol Ditekan
+        document.querySelectorAll('.link-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
