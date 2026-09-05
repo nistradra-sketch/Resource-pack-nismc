@@ -119,6 +119,33 @@
             margin-bottom: 30px;
         }
 
+        /* Section Title untuk Kategori */
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 25px 0 12px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-title.legal {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .category-title.ilegal {
+            color: var(--neon-pink);
+            text-shadow: 0 0 8px var(--neon-pink);
+        }
+
+        .category-title i {
+            font-size: 1rem;
+        }
+
         /* Link List */
         .links-wrapper {
             display: flex;
@@ -153,6 +180,16 @@
             transition: color 0.3s ease;
         }
 
+        /* Variasi warna border & ikon khusus kategori Ilegal */
+        .link-btn.ilegal-btn {
+            border-color: rgba(255, 0, 127, 0.4);
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.1);
+        }
+
+        .link-btn.ilegal-btn i {
+            color: var(--neon-pink);
+        }
+
         /* Hover Effect (Desktop) */
         .link-btn:hover {
             border-color: var(--neon-cyan);
@@ -160,6 +197,12 @@
             transform: translateY(-2px);
             color: #fff;
             background: rgba(0, 243, 255, 0.1);
+        }
+
+        .link-btn.ilegal-btn:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink);
+            background: rgba(255, 0, 127, 0.1);
         }
 
         /* Active / Click Animation (Mobile & Desktop) */
@@ -216,6 +259,12 @@
         <p class="profile-bio">sharing resource pack ilegal & legal</p>
 
         <div class="links-wrapper">
+            <!-- KATEGORI LEGAL -->
+            <div class="category-title legal">
+                <i class="fas fa-check-circle"></i>
+                <span>Resource Pack Legal</span>
+            </div>
+
             <a href="https://instagram.com" class="link-btn" target="_blank">
                 <i class="fab fa-instagram"></i>
                 <span>Instagram Official</span>
@@ -236,14 +285,20 @@
                 <span>Join Discord Server</span>
             </a>
 
-            <a href="https://wa.me/" class="link-btn" target="_blank">
+            <!-- KATEGORI ILEGAL -->
+            <div class="category-title ilegal">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Resource Pack Ilegal</span>
+            </div>
+
+            <a href="https://wa.me/" class="link-btn ilegal-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i>
-                <span>Contact Admin (WhatsApp)</span>
+                <span>Contact Admin 1 (WhatsApp)</span>
             </a>
 
-            <a href="https://wa.me/" class="link-btn" target="_blank">
+            <a href="https://wa.me/" class="link-btn ilegal-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i>
-                <span>Contact Admin (WhatsApp)</span>
+                <span>Contact Admin 2 (WhatsApp)</span>
             </a>
         </div>
     </div>
