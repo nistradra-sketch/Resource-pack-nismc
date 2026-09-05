@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* 1. KUSTOM FONT SENDIRI */
+        @font-face {
+            font-family: 'FontSaya';
+            src: url('nama-file-font-anda.ttf') format('truetype');
+            /* Catatan: Ganti 'nama-file-font-anda.ttf' dengan nama file font Anda */
+            /* Jika formatnya .otf gunakan format('opentype'), jika .woff2 gunakan format('woff2') */
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --bg-color: #080710;
             --card-bg: rgba(255, 255, 255, 0.05);
@@ -172,6 +182,12 @@
             box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
         }
 
+        /* 2. KHUSUS TEXT PADA LINK LIST (MENGGUNAKAN FONT CUSTOM) */
+        .link-btn span {
+            font-family: 'FontSaya', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
         .link-btn i {
             position: absolute;
             left: 20px;
@@ -259,7 +275,6 @@
         <p class="profile-bio">sharing resource pack ilegal & legal</p>
 
         <div class="links-wrapper">
-            <!-- KATEGORI LEGAL -->
             <div class="category-title legal">
                 <i class="fas fa-check-circle"></i>
                 <span>Resource Pack Legal</span>
@@ -285,7 +300,6 @@
                 <span>Join Discord Server</span>
             </a>
 
-            <!-- KATEGORI ILEGAL -->
             <div class="category-title ilegal">
                 <i class="fas fa-exclamation-triangle"></i>
                 <span>Resource Pack Ilegal</span>
